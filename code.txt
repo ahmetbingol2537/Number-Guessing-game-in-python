@@ -1,0 +1,26 @@
+import random
+
+def sayi_tutma_oyunu():
+    print("Welcome to the number guessing game!")
+    print("I kept a number between 1 and 100. Let's see if you can guess.")
+    
+    tutulan_sayi = random.randint(1, 100)
+    tahmin_sayisi = 0
+    tahmin_edildi = False
+
+    while not tahmin_edildi:
+        try:
+            tahmin = int(input("Your guess: "))
+            tahmin_sayisi += 1
+            
+            if tahmin < tutulan_sayi:
+                print("try a larger number")
+            elif tahmin > tutulan_sayi:
+                print("try a smaller number.")
+            else:
+                print(f"congratulations! {tahmin_sayisi} your guess is correct!")
+                tahmin_edildi = True
+        except ValueError:
+            print("Please enter a valid number")
+
+sayi_tutma_oyunu()
